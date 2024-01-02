@@ -183,6 +183,7 @@ void *connection_handler(void *socket_desc)
          }
      }
 
+#if 1 // mTLS client certificate check part...
    /**
     * Client-Zertifikat lesen und anzeigen
     */
@@ -231,7 +232,7 @@ void *connection_handler(void *socket_desc)
    else
       send(cc->socket , hello , strlen(hello)+1 , 0);
  	 printf("Hello server message sent\n");
-
+#endif
    if (cc->sCtx->withSSL)
      {
        SSL_shutdown(ssl);
